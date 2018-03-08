@@ -1,0 +1,12 @@
+<input #userInput type="text" [placeholder]="placeholder" [(ngModel)]="currUserInput" (input)="displayCurrentInput($event)"> <!-- TWO WAY BINDING!-->
+<button (click)="addItem()">Add</button>
+<p>Item about to be added: {{ currKeyDownInput }}</p>
+<ul>
+  <li [ngClass]="{'blue': strikeBtn.checked}" *ngFor="let item of todoItems; let i = index"> <!-- Directives!-->
+    {{strikeBtn.checked}}
+    <input #strikeBtn type="checkbox">
+    <input #removeBtn value="X" type="button" (click)="removeItem(i)">
+    <p>{{ i + 1 }} - {{ item.todoItem }}</p>
+  </li>
+</ul>
+<p>Latest Item Added: {{ todoItems[todoItems.length-1] }}</p>
